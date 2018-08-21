@@ -178,6 +178,10 @@
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha",
     "posttest-cov": "if [ -n \"$CODECLIMATE_REPO_TOKEN\" ]; then codeclimate-test-reporter < coverage/lcov.info; fi",
     "clean": "rimraf ./coverage",
-    "fields-explorer": "node ./fields/explorer/server.js"
+    "fields-explorer": "node ./fields/explorer/server.js",
+    "test-mochaawesome": "nyc --reporter=html mocha test/*.js --reporter mochawesome --exit",
+    "runner": "node server/server.js",
+    "e2etest": "testcafe puppeteer:no_sandbox YOUR TEST FILE PATH --reporter html",
+    "lighthouse:ci": "lighthouse --output-path=report/lighthouse-report.html --quiet --chrome-flags='--headless --no-sandbox=true' // your website URL//"
   }
 }
